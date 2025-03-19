@@ -1,5 +1,5 @@
 const movieRoute = require("./route/movies.route");
-
+const dbconnect = require("./lib/dB.js")
 const express = require("express");
 
 const app=express();
@@ -8,6 +8,8 @@ app.get('/',(req,res)=>{
     res.json({msg:"I will catch very soon to master it"})
 })
 
+//data model connection
+dbconnect();
 //middlewares
 app.use('/movies',movieRoute)
 
