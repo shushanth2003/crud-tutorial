@@ -1,5 +1,5 @@
 const express = require('express');
-const {movieIndex,movieGet,moviePut,movieDelete}=require('../controller/movie.controller')
+const {movieIndex,movieGet,movieDelete,movieDetails, movieUpdate}=require('../controller/movie.controller')
 const router = express.Router();
 
 // crud functionality for movies;
@@ -9,9 +9,11 @@ router.post('/',movieIndex)
 
 //r - Getting a movie data
 router.get('/',movieGet)
+router.get('/:id',movieDetails)
 
 //u - update a movie data
-router.put('/:id',moviePut)
+
+router.put('/:id',movieUpdate)
 
 //d delete a movie data
 router.delete('/:id',movieDelete)
