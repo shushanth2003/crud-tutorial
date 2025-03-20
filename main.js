@@ -9,9 +9,6 @@ app.use(express.json());
 // understand the url structure
 app.use(express.urlencoded({extended:true}))
 const PORT=6969;
-app.get('/',(req,res)=>{
-    res.json({msg:"I will catch very soon to master it"})
-})
 
 //data model connection
 dbconnect();
