@@ -41,9 +41,20 @@ const movieDetails = async (req, res) => {
         res.status(500).json({ message: error.message }); // ✅ Proper error handling
     }
 };
-const movieDelete=(req,res)=>{
-    res.send("Movie Data is Delete Successfully")
-}
+const movieDelete = async (req, res) => {
+    const movieId = req.params.id.toString().trim();
+
+    try {
+        const deletedMovie = await Movie.findByIdAndDelete(movieId); // Pass movieId directly
+        if (!deletedMovie) {
+            return res.status(404).json({ message: "Movie not found" });
+        }
+        res.json({ message: "Movie deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting movie:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
 
 const movieUpdate = async (req, res) => {
     try {

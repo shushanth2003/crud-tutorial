@@ -1,5 +1,5 @@
 const express = require('express');
-const {movieIndex,movieGet,movieDelete,movieDetails, movieUpdate}=require('../controller/movie.controller')
+const {movieIndex,movieGet,moviePut,movieDelete,movieDetails, movieUpdate}=require('../controller/movie.controller')
 const router = express.Router();
 
 // crud functionality for movies;
